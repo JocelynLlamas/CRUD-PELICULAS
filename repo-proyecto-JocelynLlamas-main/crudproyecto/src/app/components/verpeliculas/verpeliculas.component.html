@@ -1,0 +1,37 @@
+<div class="container mt-5" style="background-color: #0C0F0A;">
+    <div class="row">
+        <div class="col-lg-8 offset-lg-2">
+            <div class="card-body text-center">
+                <h1 class="mt-2"><strong style="color: white;">Peliculas</strong></h1>
+                <table *ngIf="vPeliculas.length > 0" class="table table-dark table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Género</th>
+                            <th scope="col">Director</th>
+                            <th scope="col">Año</th>
+                            <th scope="col">Acción</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let pelicula of vPeliculas">
+                            <th scope="row">1</th>
+                            <td>{{pelicula.nombre}}</td>
+                            <td>{{pelicula.genero}}</td>
+                            <td>{{pelicula.director}}</td>
+                            <td>{{pelicula.anio}}</td>
+                            <td>
+                                <i [routerLink]="['/editapelicula', pelicula._id]" class="fas fa-pen"></i>
+                                <i (click)="eliminarPelicula(pelicula._id)" class="fas fa-minus"></i>     
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h5 style="text-align: center; margin-top:10px">No hay peliculas en este crud</h5>
+                <button class="btn btn-secondary float-end mb-3" routerLink="/creapelicula">Agregar Pelicula</button>
+                <!-- <a class="btn btn-secondary float-end mb-3" href="/creapelicula">Agregar Pelicula link</a> -->
+            </div>
+        </div>
+    </div>
+</div>
